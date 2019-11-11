@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,26 @@ namespace ImageUniversalViewer
     /// <summary>
     /// Interaction logic for Splash.xaml
     /// </summary>
-    public partial class Splash : Window
+    public partial class SplashWindow : Window, INotifyPropertyChanged
     {
-        public Splash()
+        private string m_Status;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Status
+        {
+            get { return m_Status; }
+            set
+            {
+                if (m_Status != value)
+                {
+                    m_Status = value;
+
+                }
+            }
+        }
+
+        public SplashWindow()
         {
             InitializeComponent();
         }
